@@ -11,7 +11,7 @@ export type Content = {
   quests: Quest[]
   problem: { label: string; title: string[]; body: string }
   clock: { label: string; title: string[]; left: string; right: string; accept: string }
-  outcomes: { label: string; title: string; intro: string; items: { title: string; body: string; photo: string; alt: string }[] }
+  outcomes: { label: string; title: string[]; intro: string; items: { title: string; body: string; photo: string; alt: string }[] }
   voice: { label: string; title: string[]; left: string; right: string; prompt: string; hint: string }
   totems: { label: string; title: string[]; body: string; items: { id: TotemId; name: string; role: string; line: string }[] }
   stats: { label: string; title: string[]; body: string; items: { name: string; value: number }[] }
@@ -60,7 +60,7 @@ export const content: Record<Locale, Content> = {
     },
     outcomes: {
       label: 'Side Effects',
-      title: 'IT RARELY GOES AS PLANNED.',
+      title: ['IT RARELY GOES', 'AS PLANNED.'],
       intro: 'You set out to do one small thing. Here is what people bring back instead.',
       items: [
         { title: 'A stranger saves you a seat.', body: 'You only asked for directions. Now someone’s aunt is feeding you.', photo: '/photos/table.jpg', alt: 'A busy restaurant front on a city street at night' },
@@ -186,7 +186,7 @@ export const content: Record<Locale, Content> = {
     },
     outcomes: {
       label: 'Efectos secundarios',
-      title: 'CASI NUNCA SALE COMO LO PLANEASTE.',
+      title: ['CASI NUNCA SALE', 'COMO LO PLANEASTE.'],
       intro: 'Sales a hacer una cosa pequeña. Esto es lo que la gente trae de vuelta.',
       items: [
         { title: 'Alguien te guarda un asiento.', body: 'Solo preguntaste una dirección. Ahora la tía de alguien te está dando de comer.', photo: '/photos/table.jpg', alt: 'La fachada de un restaurante lleno en una calle de noche' },

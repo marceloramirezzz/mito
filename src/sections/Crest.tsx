@@ -48,3 +48,10 @@ export function Crest({ index }: { index: number }) {
     </svg>
   )
 }
+
+// The art alone, for a shield that stays still while the art moves inside it.
+export function CrestArt({ index }: { index: number }) {
+  return <svg viewBox="0 0 100 100" aria-hidden="true">{ART[index % ART.length]}</svg>
+}
+
+export const CREST_COUNT = ART.length

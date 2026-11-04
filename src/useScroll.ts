@@ -38,3 +38,17 @@ export function useSeen<T extends HTMLElement>(rootMargin = '0px') {
   }, [rootMargin])
   return [ref, seen] as const
 }
+
+// True while enough of a section is on screen; it goes false again on leaving.
+export function useInView<T extends HTMLElement>(threshold: number) {
+  const ref = useRef<T>(null)
+  const [inView, setInView] = useState(false)
+  useEffect(() => {
+    const element = ref.current
+    if (!element) return
+    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), { threshold })
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [threshold])
+  return [ref, inView] as const
+}
